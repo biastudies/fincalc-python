@@ -10,12 +10,14 @@ if __name__ == "__main__":
     montante = calcular_juros_simples(1000.0, 5.0, 2)
     print(f"Juros Simples (R$ 1.000 a 5% por 2 anos): R$ {montante:.2f}")
 
- # FinCalc - Sistema de Cálculos Financeiros em Python
+# FinCalc - Sistema de Cálculos Financeiros em Python
+
 
 def calcular_juros_simples(capital: float, taxa_anual: float, anos: int) -> float:
     """Calcula o montante final obtido por juros simples."""
     juros = capital * (taxa_anual / 100) * anos
     return capital + juros
+
 
 def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: int, taxa_anual: float) -> float:
     """Calcula o patrimônio acumulado para aposentadoria."""
@@ -26,7 +28,8 @@ def calcular_aposentadoria(patrimonio_atual: float, aporte_mensal: float, anos: 
         saldo = (saldo + aporte_mensal) * (1 + taxa_mensal)
     return saldo
 
+
 if __name__ == "__main__":
     print("Iniciando o sistema FinCalc...")
     patrimonio = calcular_aposentadoria(10000.0, 500.0, 20, 6.0)
-    print(f"Patrimônio Estimado para Aposentadoria: R$ {patrimonio:.2f}")
+    print(f"Patrimônio Estimado pa Aposentadoria: R$ {patrimonio:.2f}")
