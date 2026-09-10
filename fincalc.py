@@ -25,6 +25,7 @@ def calcular_aposentadoria(
 
     return saldo
 
+
 def calcular_irrf(salario_bruto: float) -> float:
     """Calcula a alíquota simplificada de Imposto de Renda Retido na Fonte."""
     if salario_bruto <= 2259.20:
@@ -61,6 +62,3 @@ if __name__ == "__main__":
         f"IRRF sobre R$ {salario:.2f}: "
         f"R$ {imposto:.2f}"
     )
-
-
-    
