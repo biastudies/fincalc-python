@@ -37,6 +37,7 @@ def calcular_irrf(salario_bruto: float) -> float:
     else:
         return (salario_bruto * 0.225) - 662.77
 
+
 def calcular_parcela_price(
     valor_emprestimo: float,
     taxa_mensal: float,
