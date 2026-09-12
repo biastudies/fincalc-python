@@ -91,6 +91,7 @@ if __name__ == "__main__":
         f"R$ {parcela:.2f}"
     )
 
+
 def calcular_valor_futuro(
     aporte_mensal: float, taxa_mensal: float, meses: int
 ) -> float:
