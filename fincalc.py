@@ -90,3 +90,21 @@ if __name__ == "__main__":
         f"a {taxa_mensal:.1f}% por {meses} meses): "
         f"R$ {parcela:.2f}"
     )
+
+def calcular_valor_futuro(
+    aporte_mensal: float, taxa_mensal: float, meses: int
+) -> float:
+    """Calcula o valor futuro segundo a regra especificada no laboratorio."""
+    if aporte_mensal < 0:
+        raise ValueError("O aporte mensal nao pode ser negativo.")
+    if meses < 0:
+        raise ValueError("A quantidade de meses nao pode ser negativa.")
+    if taxa_mensal < 0:
+        raise ValueError("A taxa mensal nao pode ser negativa.")
+
+    if meses == 0:
+        return 0.0
+
+    taxa = taxa_mensal / 100
+    total_aportado = aporte_mensal * meses
+    return total_aportado * (1 + taxa) ** (meses - 1)
