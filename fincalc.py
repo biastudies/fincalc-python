@@ -109,3 +109,24 @@ def calcular_valor_futuro(
     taxa = taxa_mensal / 100
     total_aportado = aporte_mensal * meses
     return total_aportado * (1 + taxa) ** (meses - 1)
+
+
+def calcular_depreciacaoLinear(
+    valor_inicial: float, valor_residual: float, vida_util_anos: int
+    ) -> float:
+
+
+    "Calcula o valor de depreciação anual de um ativo corporativo."
+    return (valor_inicial - valor_residual)/vida_util_anos
+
+valor_inicial=5000.0
+valor_residual=500.0
+vida_util_anos=2
+
+depreciacao_anual = calcular_depreciacaoLinear(
+    valor_inicial= valor_inicial,
+    valor_residual = valor_residual,
+    vida_util_anos = vida_util_anos
+)
+
+print(f" Seu ativo corporativo de {valor_inicial}, teve uma depreciação anual: R$ {depreciacao_anual:.2f}")
