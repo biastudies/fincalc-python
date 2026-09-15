@@ -26,10 +26,13 @@ jobs:
           pip install -r requirements.txt
 
       - name: Validar Sintaxe (Compilação Nativa)
-        run: python -m py_compile fincalc.py
+        run: python -m compileall -q fincalc
 
       - name: Executar Linter de Estilo e Boas Práticas (Flake8)
-        run: flake8 fincalc.py
+        run: flake8 .
 
       - name: Executar Linter de Segurança (Bandit)
-        run: bandit -r fincalc.py
+        run: bandit -r fincalc
+
+      - name: Executar Testes Automatizados (Pytest)
+        run: pytest
