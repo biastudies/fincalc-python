@@ -1,23 +1,28 @@
 import pytest
 
-from fincalc import calcular_valor_futuro
+from fincalc.services.servico_investimento import ServicoInvestimento
 
 
-def test_valor_futuro_aportes_padrao():
+@pytest.fixture
+def servico():
+    return ServicoInvestimento()
+
+
+def test_valor_futuro_aportes_padrao(servico):
     # Arrange & Act
-    vf = calcular_valor_futuro(500.0, 1.0, 3)
+    vf = servico.calcular_valor_futuro(500.0, 1.0, 3)
     # Assert
     assert round(vf, 2) == 1530.15
 
 
-def test_valor_futuro_zero_meses():
+def test_valor_futuro_zero_meses(servico):
     # Arrange & Act
-    vf = calcular_valor_futuro(500.0, 1.0, 0)
+    vf = servico.calcular_valor_futuro(500.0, 1.0, 0)
     # Assert
     assert round(vf, 2) == 0.0
 
 
-def test_valor_futuro_aporte_negativo():
+def test_valor_futuro_aporte_negativo(servico):
     # Arrange, Act & Assert
     with pytest.raises(ValueError):
-        calcular_valor_futuro(-200.0, 1.0, 12)
+        servico.calcular_valor_futuro(-200.0, 1.0, 12)
